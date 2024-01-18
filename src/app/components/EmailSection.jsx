@@ -4,8 +4,11 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { useRef } from 'react';
+import HeroSection from "./HeroSection";
 
 const EmailSection = () => {
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {

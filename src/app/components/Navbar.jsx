@@ -42,10 +42,10 @@ const Navbar = () => {
                             <XMarkIcon className="h-5 w-5" />
                         </button>
                     )
-                }
+                } 
             </div>
             <div className="menu hidden md:block md:w-auto" id="navbar">
-            <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+            <ul className="flex px-4 md:p-0 md:flex-row md:space-x-8 mt-0">
                 {navLinks.map((link, index) => (
                 <li key={index}>
                     <NavLink href={link.path} title={link.title} />

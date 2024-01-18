@@ -6,7 +6,7 @@ const resend = new Resend("re_FQjYR8a3_Ci3P9GtbGogFWt25f7cDZbrJ");
 const fromEmail = process.env.FROM_EMAIL;
 
 export async function POST(req, res) {
-  const { body } = await req.json();
+  const { body } = await req.json(); 
   const { email, subject, message } = body;
   try {
     const data = await resend.emails.send({
