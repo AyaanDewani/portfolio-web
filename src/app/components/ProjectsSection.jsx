@@ -10,8 +10,8 @@ const projectsData = [
     description: "This project uses Machine Learning to distinguish whether the star, based on the input given, is a Gamma star or a Hadron star.",
     image: "/images/projects/stars_ML.jpg",
     tag: ["All", "Machine Learning"],
-    gitUrl: '/',
-    previewUrl: "/",
+    gitUrl: 'https://github.com/AyaanDewani/Interacting_particle_in_star',
+    previewUrl: "https://github.com/AyaanDewani/Interacting_particle_in_star",
   },
   {
     id: 2,
@@ -40,8 +40,8 @@ const projectsData = [
       "This project uses Machine Learning to distinguish, based on the input data given, the type of seed. Inputs for the data include: Area, Girth, Asymmetry, Width, Height, Compactness, etc...",
     image: "/images/projects/ML.jpg",
     tag: ["All", "Machine Learning"],
-    gitUrl: '/',
-    previewUrl: "/",
+    gitUrl: 'https://github.com/AyaanDewani/Seeds_ML',
+    previewUrl: "https://github.com/AyaanDewani/Seeds_ML",
   },
 ];
 
