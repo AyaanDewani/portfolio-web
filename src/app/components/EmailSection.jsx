@@ -1,41 +1,61 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from 'react';
+// import { useRef } from 'react';
 import HeroSection from "./HeroSection";
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
-const EmailSection = () => {
-  
-  const handleSubmit = async (e) => {
+export const ContactUs = () => {
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
 
-    const response = await fetch(endpoint, options);
-    // const resData = await response.json();
-    if (response.status === 200) {
-      console.log("Message sent.");
-      // setEmailSubmitted(true);
+    emailjs.sendForm('service_pquoqyg', 'template_2k4kggr', form.current, 'iqWTm3yviFIx_R5kz')
+      .then((result) => {
+          console.log(result.text);
+          setEmailSubmitted(true);
+          // console.log('message sent')
+          e.target.reset()
+      }, (error) => {
+          console.log(error.text);
+      });
     }
-  };
+
+// const EmailSection = () => {
+  
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const data = {
+//       email: e.target.email.value,
+//       subject: e.target.subject.value,
+//       message: e.target.message.value,
+//     };
+//     const JSONdata = JSON.stringify(data);
+//     const endpoint = "/api/send";
+//     const options = {
+//       // The method is POST because we are sending data.
+//       method: "POST",
+//       // Tell the server we're sending JSON.
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       // Body of the request is the JSON data we created above.
+//       body: JSONdata,
+//     };
+
+//     const response = await fetch(endpoint, options);
+//     // const resData = await response.json();
+//     if (response.status === 200) {
+//       console.log("Message sent.");
+//       // setEmailSubmitted(true);
+//     }
+//   };
 
   return (
     <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
@@ -57,9 +77,14 @@ const EmailSection = () => {
           </Link>
         </div>
       </div>
-
+  
       <div>
-        <form className="flex flex-col" onSubmit={handleSubmit}>
+      {emailSubmitted ? (
+          <p className="text-green-500 text-sm mt-2">
+            Email sent successfully!
+          </p>
+        ) : (
+        <form ref={form} onSubmit={sendEmail} className="flex flex-col" >
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -69,9 +94,10 @@ const EmailSection = () => {
               Your Email
             </label>
             <input
-              name="email"
+              name="user_email"
+              // type="email"
               type="email"
-              id="email"
+              // id="email"
               required
               className="bg-[#18191E] border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
               placeholder="jacob@google.com"
@@ -82,9 +108,9 @@ const EmailSection = () => {
               Subject
             </label>
             <input
-              name="subject"
+              name="user_name"
               type="text"
-              id="subject"
+              // id="subject"
               required
               className="bg-[#18191E] border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
               placeholder="Your Subject"
@@ -97,7 +123,7 @@ const EmailSection = () => {
             </label>
             <textarea
               name="message"
-              id="message"
+              // id="message"
               className="bg-[#18191E] border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
               placeholder="Let's talk about..."
             />
@@ -109,9 +135,11 @@ const EmailSection = () => {
             </button>
           </div>
         </form>
+        )}
       </div>
     </section>
+        
   );
 };
 
-export default EmailSection;
+export default ContactUs;
