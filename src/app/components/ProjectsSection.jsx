@@ -6,6 +6,15 @@ import ProjectTag from "./ProjectTag";
 const projectsData = [
   {
     id: 1,
+    title: "PathVisualizer",
+    description: "This project employs Dijkstra's algorithm to illustrate the shortest path between designated start and end points on a grid. Users have the capability to insert obstacles on the grid, and the algorithm then displays the most efficient route. (Note: The design is not optimized for mobile phones or tablets and preview for this project is now available).",
+    image: "/images/projects/pathvis.jpg",
+    tag: ["All", "Web"],
+    gitUrl: 'https://github.com/AyaanDewani/PathFindingVisualizer',
+    previewUrl: "https://path-finding-visualizer-mocha.vercel.app/",
+  },
+  {
+    id: 1,
     title: "Determination of the type of Star",
     description: "This project uses Machine Learning to distinguish whether the star, based on the input given, is a Gamma star or a Hadron star.",
     image: "/images/projects/stars_ML.jpg",
