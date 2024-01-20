@@ -14,7 +14,7 @@ const projectsData = [
     previewUrl: "https://path-finding-visualizer-mocha.vercel.app/",
   },
   {
-    id: 1,
+    id: 2,
     title: "Determination of the type of Star",
     description: "This project uses Machine Learning to distinguish whether the star, based on the input given, is a Gamma star or a Hadron star.",
     image: "/images/projects/stars_ML.jpg",
@@ -23,7 +23,7 @@ const projectsData = [
     previewUrl: "https://github.com/AyaanDewani/Interacting_particle_in_star",
   },
   {
-    id: 2,
+    id: 3,
     title: "Discord Clone",
     description:
       "This project uses React JS along with Tailwind CSS, Prisma, Shadcn, etc... to make a replica of the popular gaming, meeting platform, Discord. Notable features include, creation of servers, voice and video channels, invite links, etc...",
@@ -33,7 +33,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Prediction of Bike use",
     description:
       "This project uses Machine Learning to distinguish whether, based on the input data given, if people would prefer renting a bike over walking (This model was trained on the data from South Korea.)",
@@ -43,7 +43,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Type of Seed",
     description:
       "This project uses Machine Learning to distinguish, based on the input data given, the type of seed. Inputs for the data include: Area, Girth, Asymmetry, Width, Height, Compactness, etc...",
